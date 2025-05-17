@@ -1,0 +1,14 @@
+def rule_based_classifier(features):
+    finger_ranges = {
+        0: 'Closed Fist',
+        1: 'Pointing',
+        2: 'Victory',
+        3: 'Three',
+        4: 'Four',
+        5: 'Open Hand'
+    }
+    
+    if features['thumb_present'] and features['num_fingers'] == 1:
+        return 'Thumbs Up'
+        
+    return finger_ranges.get(features['num_fingers'], 'Unknown')
